@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.classIT.mapper.ProductMapper">
+
+
+	<resultMap type="com.classIT.domain.ProductVO" id="productMap">
+    	<id property="product_no" column="product_no"/>
+    	<result property="product_no" column="product_no"/>
+    	<result property="product_title" column="product_title"/>
+    	<result property="class_category" column="class_category"/>
+    	<result property="price_per_person" column="price_per_person"/>
+    	<result property="max_capacity" column="max_capacity"/>
+    	<collection property="scheduleList" resultMap="scheduleMap">
+    	</collection> 
+  	</resultMap>
+  	
+  	<resultMap type="com.classIT.domain.ScheduleVO" id="scheduleMap">
+    	<result property="product_no" column="product_no"/>
+    	<result property="schedule" column="schedule"/>
+  	</resultMap>
+
+
+    <select id="getList" resultMap="productMap">
+        select 
+        	p.product_no, p.product_title, p.class_category, p.price_per_person, p.max_capacity, s.schedule 
+        from 
+        	product_tbl p Left join schedule_tbl s on p.product_no = s.product_no
+        where p.product_title = #{product_title}
+    </select> 
+    
+    <insert id="insert">
+		insert into product_tbl (product_no, product_title, owner_no, class_category, class_detail, price_per_person, max_capacity, location, location_code)
+		values (seq_board.nextval, #{product_title}, #{owner_no}, #{class_category}, #{class_detail}, #{price_per_person}, #{max_capacity}, #{location}, #{location_code})
+	</insert>
+
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="product_no" order="BEFORE" resultType="long">
+			select seq_board.nextval from dual
+		</selectKey>
+		
+		insert into product_tbl (product_no, product_title, owner_no, class_category, class_detail, price_per_person, max_capacity, location, location_code)
+		values (#{product_no}, #{product_title}, #{owner_no}, #{class_category}, #{class_detail}, #{price_per_person}, #{max_capacity}, #{location}, #{location_code})
+	</insert>
+
+	<select id="read" resultType="com.classIT.domain.ProductVO">
+		select * from product_tbl where product_no=#{product_no}
+	</select>
+
+	<delete id="delete">
+		delete from product_tbl where product_no = #{product_no}
+	</delete>
+
+	<update id="update">
+		update product_tbl
+		set product_title = #{product_title},
+		owner_no = #{owner_no},
+		class_category = #{class_category},
+		class_detail = #{class_detail}
+		price_per_person = #{price_per_person},
+		max_capacity = #{max_capacity},
+		location = #{location},
+		location_code = #{location_code}
+		where product_no = #{product_no}
+	</update>
+    
+</mapper>
