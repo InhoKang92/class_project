@@ -24,7 +24,7 @@ public class ProductServiceTests {
 	public void testRegister() {
 		ProductVO product = new ProductVO();
 		product.setProduct_title("货惑前11");
-		product.setOwner_no(10L);
+		product.setOwner_id("10L");
 		product.setClass_category("货墨抛绊府11");
 //		product.setClass_detail();
 		product.setPrice_per_person(10000L);

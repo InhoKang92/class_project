@@ -8,7 +8,7 @@ import com.classIT.domain.ProductVO;
 
 public interface ProductMapper {
 
-	public List<ProductVO> getList(@Param("product_title") String product_title);
+	public List<ProductVO> getList(@Param("class_category") String class_category);
 	public void insert(ProductVO product);
 	public void insertSelectKey(ProductVO product);
 	public ProductVO read(Long product_no);

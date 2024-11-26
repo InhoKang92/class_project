@@ -9,9 +9,10 @@ public class ProductVO {
 
 	private Long product_no;
 	private String product_title;
-	private Long owner_no;
+	private String owner_id;
 	private String class_category;
-	private byte[] class_detail;
+	private String main_img;
+	private String class_detail;
 	private Long price_per_person;
 	private Long max_capacity;
 	private String location;

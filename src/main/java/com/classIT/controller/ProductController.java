@@ -31,27 +31,34 @@ public class ProductController {
     }
 	
     @PostMapping("/product/list")
-    public String list(@RequestParam("product_title") String product_title, @RequestParam("product_category") String product_category, Model model) {
+    public String list(@RequestParam("class_category") String class_category, Model model) {
     	log.info("list...............");
     	
-    	log.info(product_title);
+    	log.info("class_category : " + class_category);
     	
-    	List<ProductVO> list = productservice.getList(product_title);
+    	List<ProductVO> list = productservice.getList(class_category);
     	
-    	log.info("controller" + list);
-    	
-    	ProductVO vo = list.get(0);
-    	
-    	model.addAttribute("product_title", product_title);
-    	model.addAttribute("list", productservice.getList(product_title));
-    	model.addAttribute("list2", vo.getScheduleList());
-    	model.addAttribute("selected_Category", product_category);
-    	
-    	log.info(vo.getScheduleList());
-    	
-    	
+    	log.info("selected_list :" + list);
+    	    	
+    	model.addAttribute("list", list);
+    	model.addAttribute("selected_Category", class_category);
     	
     	return "product/list";
+    }
+    
+    @GetMapping("/sub")
+    public void get(@RequestParam("product_no") Long product_no, Model model) {
+    	
+    	ProductVO vo = productservice.get(product_no);
+    	
+    	log.info(vo);
+    	
+    	List<ScheduleVO> list = vo.getScheduleList();
+    	
+    	log.info(list);
+    	
+    	model.addAttribute("product", vo);
+    	model.addAttribute("scheduleList", list);
     }
     
 //    @GetMapping("/register")

@@ -10,6 +10,6 @@ public interface ProductService {
    public ProductVO get(Long product_no);
    public boolean modify(ProductVO product);
    public boolean remove(Long product_no);
-   public List<ProductVO> getList(String product_title);
+   public List<ProductVO> getList(String class_category);
    
 }

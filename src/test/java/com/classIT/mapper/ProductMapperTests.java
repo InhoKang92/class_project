@@ -32,7 +32,7 @@ public class ProductMapperTests {
 	public void testInsert() {
 		ProductVO product = new ProductVO();
 		product.setProduct_title("새상품");
-		product.setOwner_no(10L);
+		product.setOwner_id("10");
 		product.setClass_category("새카테고리");
 //		product.setClass_detail();
 		product.setPrice_per_person(10000L);
@@ -49,7 +49,7 @@ public class ProductMapperTests {
 	public void testInsertSelectKey() {
 		ProductVO product = new ProductVO();
 		product.setProduct_title("새상품 select key");
-		product.setOwner_no(10L);
+		product.setOwner_id("10L");
 		product.setClass_category("새카테고리 select key");
 //		product.setClass_detail();
 		product.setPrice_per_person(10000L);
@@ -80,7 +80,7 @@ public class ProductMapperTests {
 		ProductVO product = new ProductVO();
 		product.setProduct_no(17L);
 		product.setProduct_title("수정된 상품");
-		product.setOwner_no(10L);
+		product.setOwner_id("10L");
 		product.setClass_category("수정된 카테고리");
 //		product.setClass_detail();
 		product.setPrice_per_person(10000L);

@@ -39,9 +39,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductVO> getList(String product_title) {
+	public List<ProductVO> getList(String class_category) {
 		log.info("getList.....");
-		return mapper.getList(product_title);
+		return mapper.getList(class_category);
 	}
 
 	@Override
