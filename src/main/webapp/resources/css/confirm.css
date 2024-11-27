@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+.class_info_box {
+	border: 1px solid black;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.class_info {
+	display: flex;
+	gap: 20px;
+	margin-top: 20px;	
+}
+
+.img_box {
+	position: relative;
+	width: 65%; 
+	height: 350px;
+	overflow: hidden;
+}
+
+.img_box>img {
+	position: absolute;
+	top: -480px;
+	width: 100%;
+}
+
+.class_detail {
+	flex: 1;
+}
+
+.class_detail>div {
+	margin: 20px 0;
+	border-bottom: 1px solid black;
+}
+
+.content {
+	text-align: right;
+	font-size: 18px;
+	margin-top: 10px;
+}
+
+.pay_form {
+	border: 1px solid black;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.pay_form>h3 {
+	margin-bottom: 20px;
+}
+
+.pay_form>h4 {
+	margin-bottom: 20px;
+}
+
+.pay_form>div {
+	margin: 20px 0;
+	border-bottom: 1px solid black;
+}
+
+.total {
+	display: inline-block;
+}
+
+.pay_btn {
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+	padding: 5px;
+	background: none;
+	border: 1px solid black;
+	cursor: pointer;
+}
+

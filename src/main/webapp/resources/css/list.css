@@ -1,10 +1,5 @@
 @charset "UTF-8";
 
-.container {
-	border: 2px solid black;
-	padding: 20px;
-}
-
 .search_title {
 	margin-bottom: 20px;
 }

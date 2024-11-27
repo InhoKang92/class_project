@@ -14,13 +14,17 @@
 </head>
 <body>
 
-	<%@include file="../includes/header.jsp" %>
+	
 	
 
 	
 	
 	
-  
+<div class="page-wrapper">
+<%@include file="../includes/header.jsp" %>
+
+
+
 	<div class="container">
 	
 		<div>
@@ -64,6 +68,7 @@
   		</table>
   		
 	</div>
+</div>
 	
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"

@@ -61,6 +61,17 @@ public class ProductController {
     	model.addAttribute("scheduleList", list);
     }
     
+    @GetMapping("/confirm")
+    public void confirm(Long product_no, String selected_schedule, Long reserve_number, String reserve_amount, Model model) {
+
+    	ProductVO vo = productservice.get(product_no);
+    	
+    	model.addAttribute("selected_schedule", selected_schedule);
+    	model.addAttribute("reserve_number", reserve_number);
+    	model.addAttribute("reserve_amount", reserve_amount);
+    	model.addAttribute("product", vo);
+    }
+    
 //    @GetMapping("/register")
 //	public String register(ProductVO product, RedirectAttributes rttr) {
 //		log.info("register......." + product);
